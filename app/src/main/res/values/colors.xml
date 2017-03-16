@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <!--App主基调-->
+    <color name="cb0">#4371ED</color>
+    <color name="cb2">#F3F4F5</color>
+
+    <!--文字颜色-->
+    <color name="cg0">#FFFFFF</color>
+    <color name="cg1">#EEEEEE</color>
+    <color name="cg2">#CCCCCC</color>
+    <color name="cg3">#999999</color>
+    <color name="cg4">#878787</color>
+    <color name="cg5">#666666</color>
+    <color name="cg6">#222222</color>
+    <color name="cg7">#E5E5E5</color>
+
+    <!--其它辅色-->
+    <color name="cr0">#E9665F</color>
+    <color name="ct0">#54AA00</color>
+    <color name="cb1">#9EB4FA</color>
+    <color name="cr1">#dd7ab4f5</color>
+    <color name="transparent_50">#80000000</color>
+</resources>

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">MapLibForApp</string>
+    <string name="add_maker">打点</string>
+    <string name="draw_line">画线</string>
+    <string name="move_map">移动地图</string>
+    <string name="draw_rout">绘制路径</string>
+    <string name="navi">导航</string>
+    <string name="smooth_move">平滑移动</string>
+    <string name="clear">清除地图</string>
+    <string name="cancle">退出</string>
+</resources>
