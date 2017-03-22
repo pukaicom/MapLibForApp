@@ -1,4 +1,4 @@
-package pk.com.lib.map.gaode;
+package pk.com.lib.map.amp;
 
 import android.content.Context;
 import android.content.Intent;

@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements MapControl {
         final FragmentManager fragmentManager = getSupportFragmentManager();
         mapFrament = (MapFrament) fragmentManager.findFragmentByTag(FRAGMENT_TAG_MAP);
         if (mapFrament == null) {
-            mapFrament = MapFramentFactory.createMapFrament(MapFramentFactory.GAODE_MAP_CODE, new Bundle());
+            mapFrament = MapFramentFactory.createMapFrament(MapFramentFactory.AMAP_MAP_CODE, new Bundle());
             fragmentManager.beginTransaction()
                     .add(R.id.map_container, mapFrament, FRAGMENT_TAG_MAP)
                     .commit();

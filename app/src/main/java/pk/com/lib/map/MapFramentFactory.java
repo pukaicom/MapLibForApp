@@ -2,7 +2,7 @@ package pk.com.lib.map;
 
 import android.os.Bundle;
 
-import pk.com.lib.map.gaode.AmapFragment;
+import pk.com.lib.map.amp.AmapFragment;
 
 
 /**
@@ -12,12 +12,12 @@ import pk.com.lib.map.gaode.AmapFragment;
  */
 public class MapFramentFactory {
     public final static int TENCENT_MAP_CODE = 0;
-    public final static int GAODE_MAP_CODE = 1;
+    public final static int AMAP_MAP_CODE = 1;
 
     public static MapFrament createMapFrament(int mapCode, Bundle bundle) {
         MapFrament mapFrament = null;
         
-        if (mapCode == GAODE_MAP_CODE) {
+        if (mapCode == AMAP_MAP_CODE) {
             mapFrament = AmapFragment.newInstance(bundle);
         }
         return mapFrament;
