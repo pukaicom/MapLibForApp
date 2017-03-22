@@ -7,10 +7,10 @@ import com.amap.api.maps.model.Marker;
  * <p/>
  * 用于传递地图标注的公共标注类
  */
-public class FiveMarker {
+public class PKMarker {
     private Marker amapMarker;
 
-    public FiveMarker(Marker amapMarker) {
+    public PKMarker(Marker amapMarker) {
         this.amapMarker = amapMarker;
     }
 

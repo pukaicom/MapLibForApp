@@ -13,7 +13,7 @@ import java.util.List;
  * Created by pukai on 2016-4-26.
  * 用于接口传递数据的公共经纬度坐标类
  */
-public class FiveLatLng implements Serializable, Parcelable {
+public class PKLatLng implements Serializable, Parcelable {
     private static final long serialVersionUID = 1221039181121980934L;
     private double latitude;
     private double longitude;
@@ -78,12 +78,12 @@ public class FiveLatLng implements Serializable, Parcelable {
     }
 
 
-    public FiveLatLng(double latitude, double longitude) {
+    public PKLatLng(double latitude, double longitude) {
         this.latitude = latitude;
         this.longitude = longitude;
     }
 
-    public FiveLatLng(double latitude, double longitude, String ttile, String snippet) {
+    public PKLatLng(double latitude, double longitude, String ttile, String snippet) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.title = ttile;
@@ -94,7 +94,7 @@ public class FiveLatLng implements Serializable, Parcelable {
         return latitude == 0.0 || longitude == 0.0;
     }
 
-    public FiveLatLng(double latitude, double longitude, double bearing, int locType, long time) {
+    public PKLatLng(double latitude, double longitude, double bearing, int locType, long time) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.bearing = bearing;
@@ -129,40 +129,40 @@ public class FiveLatLng implements Serializable, Parcelable {
         dest.writeLong(this.time);
     }
 
-    protected FiveLatLng(Parcel in) {
+    protected PKLatLng(Parcel in) {
         this.latitude = in.readDouble();
         this.longitude = in.readDouble();
         this.bearing = in.readDouble();
         this.time = in.readLong();
     }
 
-    public static final Creator<FiveLatLng> CREATOR = new Creator<FiveLatLng>() {
+    public static final Creator<PKLatLng> CREATOR = new Creator<PKLatLng>() {
         @Override
-        public FiveLatLng createFromParcel(Parcel source) {
-            return new FiveLatLng(source);
+        public PKLatLng createFromParcel(Parcel source) {
+            return new PKLatLng(source);
         }
 
         @Override
-        public FiveLatLng[] newArray(int size) {
-            return new FiveLatLng[size];
+        public PKLatLng[] newArray(int size) {
+            return new PKLatLng[size];
         }
     };
 
-    public static List<LatLng> listFiveLatlng2AmapLatlng(List<FiveLatLng> list) {
+    public static List<LatLng> listPKLatlng2AmapLatlng(List<PKLatLng> list) {
         List<LatLng> amapList = new ArrayList<>();
         if (list != null && !list.isEmpty()) {
-            for (FiveLatLng fiveLatLng : list) {
+            for (PKLatLng fiveLatLng : list) {
                 amapList.add(fiveLatLng.getAmapLatlng());
             }
         }
         return amapList;
     }
 
-    public static List<FiveLatLng> listAmapLatlng2FiveLatlng(List<LatLng> list) {
-        List<FiveLatLng> fiveLatLngs = new ArrayList<>();
+    public static List<PKLatLng> listAmapLatlng2PKLatlng(List<LatLng> list) {
+        List<PKLatLng> fiveLatLngs = new ArrayList<>();
         if (list != null && !list.isEmpty()) {
             for (LatLng amapLatlng : list) {
-                fiveLatLngs.add(new FiveLatLng(amapLatlng.latitude,amapLatlng.longitude));
+                fiveLatLngs.add(new PKLatLng(amapLatlng.latitude,amapLatlng.longitude));
             }
         }
         return fiveLatLngs;

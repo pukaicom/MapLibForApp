@@ -11,7 +11,7 @@ import java.net.URISyntaxException;
 import java.text.DecimalFormat;
 import java.util.List;
 
-import pk.com.lib.map.modle.FiveLatLng;
+import pk.com.lib.map.modle.PKLatLng;
 
 /**
  * Created by dongfang on 2016/4/28.
@@ -117,7 +117,7 @@ public class MapUtil {
                             + "&destination=" + endAdrress
                             + "|latlng:" + endLat + "," + endLng
                             + "&mode=driving&src=" + context.getPackageName()
-                            + "|" + "RentFive" // 故意这么写的// + context.getString(R.string.app_name)
+                            + "|" + "RentPK" // 故意这么写的// + context.getString(R.string.app_name)
                             + "#Intent;scheme=bdapp;package=com.baidu.BaiduMap;end"
                     , 0);
 
@@ -151,7 +151,7 @@ public class MapUtil {
         context.startActivity(intent);
     }
 
-    public static FiveLatLng transGoogle2Amap(double lat, double lng) {
+    public static PKLatLng transGoogle2Amap(double lat, double lng) {
         return transform2Mars(lat, lng);
     }
 
@@ -162,7 +162,7 @@ public class MapUtil {
      * @param wgLon 地球经度
      * @return
      */
-    private static FiveLatLng transform2Mars(double wgLat, double wgLon) {
+    private static PKLatLng transform2Mars(double wgLat, double wgLon) {
         double dLat = transform2MarsLat(wgLon - 105.0, wgLat - 35.0);
         double dLon = transform2MarsLng(wgLon - 105.0, wgLat - 35.0);
         double radLat = wgLat / 180.0 * pi;
@@ -173,7 +173,7 @@ public class MapUtil {
         dLon = (dLon * 180.0) / (a / sqrtMagic * Math.cos(radLat) * pi);
         double mgLat = wgLat + dLat;
         double mgLon = wgLon + dLon;
-        return new FiveLatLng(Double.valueOf(sDecimalFormat.format(mgLat)), Double.valueOf(sDecimalFormat.format(mgLon)));
+        return new PKLatLng(Double.valueOf(sDecimalFormat.format(mgLat)), Double.valueOf(sDecimalFormat.format(mgLon)));
     }
 
     /**
@@ -183,13 +183,13 @@ public class MapUtil {
      * @param gcLng 地球经度
      * @return
      */
-    public static FiveLatLng transform2BaiDu(double gcLat, double gcLng) {
+    public static PKLatLng transform2BaiDu(double gcLat, double gcLng) {
         double x = gcLng, y = gcLat;
         double z = Math.sqrt(x * x + y * y) + 0.00002 * Math.sin(y * x_pi);
         double theta = Math.atan2(y, x) + 0.000003 * Math.cos(x * x_pi);
         double bdLat = z * Math.sin(theta) + 0.006;
         double bdLng = z * Math.cos(theta) + 0.0065;
-        return new FiveLatLng(bdLat, bdLng);
+        return new PKLatLng(bdLat, bdLng);
     }
 
     /**
@@ -251,12 +251,12 @@ public class MapUtil {
         return z * Math.sin(theta) + 0.006;
     }
 
-    public static boolean isTheSamePlace(FiveLatLng fiveLatLng1, FiveLatLng fiveLatLng2) {
+    public static boolean isTheSamePlace(PKLatLng fiveLatLng1, PKLatLng fiveLatLng2) {
         //// TODO: 17/2/14 判断两个点是否为同一个点
         return  (Math.abs(fiveLatLng1.getLatitude() - fiveLatLng2.getLatitude()) < 0.0001 && Math.abs(fiveLatLng1.getLongitude() - fiveLatLng2.getLongitude()) < 0.0001);
     }
 
-    public static boolean isTheSameLatlng(FiveLatLng fiveLatLng1, FiveLatLng fiveLatLng2) {
+    public static boolean isTheSameLatlng(PKLatLng fiveLatLng1, PKLatLng fiveLatLng2) {
         // 17/2/14 判断两个点经纬度的误差
         return (Math.abs(fiveLatLng1.getLatitude() - fiveLatLng2.getLatitude()) < 0.0000001 && Math.abs(fiveLatLng1.getLongitude() - fiveLatLng2.getLongitude()) < 0.0000001);
     }

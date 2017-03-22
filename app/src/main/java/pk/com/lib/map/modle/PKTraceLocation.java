@@ -11,17 +11,8 @@ import java.util.List;
 /**
  * Created by pukai on 16/12/26.
  */
-public class FiveTraceLocation implements Parcelable {
-    /**
-     * {"deviceId":"015839054985",
-     * "receiveTime":1473327304000,
-     * "speed":0.0,
-     * "longitude":121.3417520174,
-     * "latitude":31.175009193,
-     * "direction":349,
-     * "carStatus":0,
-     * "acc":1}
-     **/
+public class PKTraceLocation implements Parcelable {
+
     private String deviceId;
 
     private long receiveTime;
@@ -69,10 +60,10 @@ public class FiveTraceLocation implements Parcelable {
         dest.writeInt(this.acc);
     }
 
-    public FiveTraceLocation() {
+    public PKTraceLocation() {
     }
 
-    public FiveTraceLocation(TraceLocation traceLocation) {
+    public PKTraceLocation(TraceLocation traceLocation) {
         if (traceLocation != null) {
             receiveTime = traceLocation.getTime();
             speed = traceLocation.getSpeed();
@@ -82,7 +73,7 @@ public class FiveTraceLocation implements Parcelable {
         }
     }
 
-    protected FiveTraceLocation(Parcel in) {
+    protected PKTraceLocation(Parcel in) {
         this.deviceId = in.readString();
         this.receiveTime = in.readLong();
         this.speed = in.readFloat();
@@ -93,35 +84,35 @@ public class FiveTraceLocation implements Parcelable {
         this.acc = in.readInt();
     }
 
-    public static final Creator<FiveTraceLocation> CREATOR = new Creator<FiveTraceLocation>() {
+    public static final Creator<PKTraceLocation> CREATOR = new Creator<PKTraceLocation>() {
         @Override
-        public FiveTraceLocation createFromParcel(Parcel source) {
-            return new FiveTraceLocation(source);
+        public PKTraceLocation createFromParcel(Parcel source) {
+            return new PKTraceLocation(source);
         }
 
         @Override
-        public FiveTraceLocation[] newArray(int size) {
-            return new FiveTraceLocation[size];
+        public PKTraceLocation[] newArray(int size) {
+            return new PKTraceLocation[size];
         }
     };
 
-    public static List<TraceLocation> listFiveTraceLocation2AmapTraceLocation(List<FiveTraceLocation> fiveTraceLocationList) {
+    public static List<TraceLocation> listPKTraceLocation2AmapTraceLocation(List<PKTraceLocation> fiveTraceLocationList) {
         List<TraceLocation> amapTraceLation = new ArrayList<>();
         if (fiveTraceLocationList == null || fiveTraceLocationList.isEmpty()) {
         } else {
-            for (FiveTraceLocation FiveTraceLocation : fiveTraceLocationList) {
-                amapTraceLation.add(FiveTraceLocation.getAmapTraceLocation());
+            for (PKTraceLocation PKTraceLocation : fiveTraceLocationList) {
+                amapTraceLation.add(PKTraceLocation.getAmapTraceLocation());
             }
         }
         return amapTraceLation;
     }
 
-    public static List<FiveTraceLocation> listAmapTraceLocation2FiveTraceLocation(List<TraceLocation> aMapTracelocation) {
-        List<FiveTraceLocation> fiveTraceLation = new ArrayList<>();
+    public static List<PKTraceLocation> listAmapTraceLocation2PKTraceLocation(List<TraceLocation> aMapTracelocation) {
+        List<PKTraceLocation> fiveTraceLation = new ArrayList<>();
         if (aMapTracelocation == null || aMapTracelocation.isEmpty()) {
         } else {
             for (TraceLocation amapTraceLocation : aMapTracelocation) {
-                fiveTraceLation.add(new FiveTraceLocation(amapTraceLocation));
+                fiveTraceLation.add(new PKTraceLocation(amapTraceLocation));
             }
         }
         return fiveTraceLation;

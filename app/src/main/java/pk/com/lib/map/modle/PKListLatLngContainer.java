@@ -5,17 +5,17 @@ import com.amap.api.maps.model.LatLng;
 import java.util.List;
 
 /**
- * <p>f防止各种地图类的List<LatLng> 在接口回调时，多次转换成List<FiveLatLng> 节约时间和空间效率</p>
+ * <p>f防止各种地图类的List<LatLng> 在接口回调时，多次转换成List<PKLatLng> 节约时间和空间效率</p>
  * Created by pukai on 16/12/26.
  */
-public class FiveListLatLngContainer {
+public class PKListLatLngContainer {
     private List<LatLng> aMaplist;
 
-    private List<FiveLatLng> fiveLatLngs;
+    private List<PKLatLng> fiveLatLngs;
 
     public List<LatLng> getaMaplist() {
         if (aMaplist == null || aMaplist.isEmpty()) {
-            aMaplist = FiveLatLng.listFiveLatlng2AmapLatlng(fiveLatLngs);
+            aMaplist = PKLatLng.listPKLatlng2AmapLatlng(fiveLatLngs);
         }
         return aMaplist;
     }
@@ -24,27 +24,27 @@ public class FiveListLatLngContainer {
         this.aMaplist = aMaplist;
     }
 
-    public List<FiveLatLng> getFiveLatLngs() {
+    public List<PKLatLng> getPKLatLngs() {
         if (fiveLatLngs == null || fiveLatLngs.isEmpty()) {
-            fiveLatLngs = FiveLatLng.listAmapLatlng2FiveLatlng(aMaplist);
+            fiveLatLngs = PKLatLng.listAmapLatlng2PKLatlng(aMaplist);
         }
         return fiveLatLngs;
     }
 
-    public void setFiveLatLngs(List<FiveLatLng> fiveLatLngs) {
+    public void setPKLatLngs(List<PKLatLng> fiveLatLngs) {
         this.fiveLatLngs = fiveLatLngs;
     }
 
-    public FiveListLatLngContainer(List<LatLng> aMaplist, List<FiveLatLng> fiveLatLngs) {
+    public PKListLatLngContainer(List<LatLng> aMaplist, List<PKLatLng> fiveLatLngs) {
         this.aMaplist = aMaplist;
         this.fiveLatLngs = fiveLatLngs;
     }
 
-    public FiveListLatLngContainer(List<FiveLatLng> fiveLatLngs) {
+    public PKListLatLngContainer(List<PKLatLng> fiveLatLngs) {
         this.fiveLatLngs = fiveLatLngs;
     }
 
-    public FiveListLatLngContainer() {
+    public PKListLatLngContainer() {
 
     }
 

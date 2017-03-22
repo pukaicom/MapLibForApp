@@ -13,10 +13,10 @@ import com.amap.api.maps.model.PolylineOptions;
 
 import java.util.List;
 
-import pk.com.lib.map.modle.FiveLatLng;
-import pk.com.lib.map.modle.FiveListLatLngContainer;
-import pk.com.lib.map.modle.FiveMarker;
-import pk.com.lib.map.modle.FiveMarkerOptions;
+import pk.com.lib.map.modle.PKLatLng;
+import pk.com.lib.map.modle.PKListLatLngContainer;
+import pk.com.lib.map.modle.PKMarker;
+import pk.com.lib.map.modle.PKMarkerOptions;
 
 /**
  * Created by pukai on 16/12/22.
@@ -28,27 +28,27 @@ public class AMapOverLay extends IOverLay<AMap> {
     }
 
     @Override
-    public FiveMarker addMarker(FiveMarkerOptions fiveMarkerOptions) {
+    public PKMarker addMarker(PKMarkerOptions fiveMarkerOptions) {
         return null;
     }
 
     @Override
-    public FiveMarker addMarker(FiveLatLng fiveLatLng, View view) {
-        FiveMarker fiveMarker = new FiveMarker(mFiveMap.addMarker(new MarkerOptions().position(fiveLatLng.getAmapLatlng()).title("")));
+    public PKMarker addMarker(PKLatLng fiveLatLng, View view) {
+        PKMarker fiveMarker = new PKMarker(mPKMap.addMarker(new MarkerOptions().position(fiveLatLng.getAmapLatlng()).title("")));
         fiveMarker.getAmaptMarker().setIcon(BitmapDescriptorFactory.fromView(view));
         return fiveMarker;
     }
 
     @Override
-    public FiveMarker addMarker(FiveLatLng fiveLatLng, View view, float anchorX, float anchorY) {
-        FiveMarker fiveMarker = new FiveMarker(mFiveMap.addMarker(new MarkerOptions().position(fiveLatLng.getAmapLatlng()).title("").anchor(anchorX, anchorY)));
+    public PKMarker addMarker(PKLatLng fiveLatLng, View view, float anchorX, float anchorY) {
+        PKMarker fiveMarker = new PKMarker(mPKMap.addMarker(new MarkerOptions().position(fiveLatLng.getAmapLatlng()).title("").anchor(anchorX, anchorY)));
         fiveMarker.getAmaptMarker().setIcon(BitmapDescriptorFactory.fromView(view));
         return fiveMarker;
     }
 
     @Override
-    public FiveMarker addMarker(FiveLatLng fiveLatLng, int imgId) {
-        FiveMarker fiveMarker = new FiveMarker(mFiveMap.addMarker(new MarkerOptions()
+    public PKMarker addMarker(PKLatLng fiveLatLng, int imgId) {
+        PKMarker fiveMarker = new PKMarker(mPKMap.addMarker(new MarkerOptions()
                 .position(fiveLatLng.getAmapLatlng())
                 .rotateAngle((float) fiveLatLng.getBearing())
         ));
@@ -57,27 +57,27 @@ public class AMapOverLay extends IOverLay<AMap> {
     }
 
     @Override
-    public FiveMarker addMarker(FiveLatLng fiveLatLng, String title) {
+    public PKMarker addMarker(PKLatLng fiveLatLng, String title) {
         return null;
     }
 
     @Override
-    public FiveMarker addMarker(FiveLatLng fiveLatLng, String title, boolean isInfoWindowShow) {
+    public PKMarker addMarker(PKLatLng fiveLatLng, String title, boolean isInfoWindowShow) {
         return null;
     }
 
     @Override
-    public FiveMarker addMarker(FiveLatLng fiveLatLng, String title, int imgID, boolean isInfoWindowShow) {
+    public PKMarker addMarker(PKLatLng fiveLatLng, String title, int imgID, boolean isInfoWindowShow) {
         return null;
     }
 
     @Override
-    public FiveMarker addMarker(FiveLatLng fiveLatLng, String title, int imgID) {
+    public PKMarker addMarker(PKLatLng fiveLatLng, String title, int imgID) {
         return null;
     }
 
     @Override
-    public void addPollyLine(FiveListLatLngContainer fiveListLatLngContainer) {
+    public void addPollyLine(PKListLatLngContainer fiveListLatLngContainer) {
         if (fiveListLatLngContainer == null || fiveListLatLngContainer.isEmpty()) {
             return;
         }
@@ -90,7 +90,7 @@ public class AMapOverLay extends IOverLay<AMap> {
         if (list == null || list.size() <= 1) {
             return;
         }
-        mFiveMap.addPolyline(new PolylineOptions().color(Color.BLUE)
+        mPKMap.addPolyline(new PolylineOptions().color(Color.BLUE)
                 .addAll(list)
                 .useGradient(true)
                 .width(16));

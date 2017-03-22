@@ -25,18 +25,18 @@ public class MapResource<T> {
     private Point screenPoint;
 
     /** 基础地图资源**/
-    protected T mFiveMap;
+    protected T mPKMap;
 
     protected Context mContext;
 
 
     public void initMapResource(T fiveMap, Context context) {
-        mFiveMap = fiveMap;
+        mPKMap = fiveMap;
         mContext = context;
     }
 
     protected void destroy() {
-        mFiveMap = null;
+        mPKMap = null;
         mContext = null;
     }
 

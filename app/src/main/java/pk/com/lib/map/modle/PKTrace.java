@@ -6,7 +6,7 @@ import android.os.Parcelable;
 /**
  * Created by pukai on 16/12/21.
  */
-public class FiveTrace implements Parcelable {
+public class PKTrace implements Parcelable {
     private long time;
     private double latitude;
     private double longitude;
@@ -58,25 +58,25 @@ public class FiveTrace implements Parcelable {
         dest.writeFloat(this.bearing);
     }
 
-    public FiveTrace() {
+    public PKTrace() {
     }
 
-    protected FiveTrace(Parcel in) {
+    protected PKTrace(Parcel in) {
         this.time = in.readLong();
         this.latitude = in.readDouble();
         this.longitude = in.readDouble();
         this.bearing = in.readFloat();
     }
 
-    public static final Creator<FiveTrace> CREATOR = new Creator<FiveTrace>() {
+    public static final Creator<PKTrace> CREATOR = new Creator<PKTrace>() {
         @Override
-        public FiveTrace createFromParcel(Parcel source) {
-            return new FiveTrace(source);
+        public PKTrace createFromParcel(Parcel source) {
+            return new PKTrace(source);
         }
 
         @Override
-        public FiveTrace[] newArray(int size) {
-            return new FiveTrace[size];
+        public PKTrace[] newArray(int size) {
+            return new PKTrace[size];
         }
     };
 }

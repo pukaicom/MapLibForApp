@@ -8,10 +8,10 @@ import com.amap.api.maps.model.LatLng;
 import java.util.List;
 
 import pk.com.lib.map.MapResource;
-import pk.com.lib.map.modle.FiveLatLng;
-import pk.com.lib.map.modle.FiveListLatLngContainer;
-import pk.com.lib.map.modle.FiveMarker;
-import pk.com.lib.map.modle.FiveMarkerOptions;
+import pk.com.lib.map.modle.PKLatLng;
+import pk.com.lib.map.modle.PKListLatLngContainer;
+import pk.com.lib.map.modle.PKMarker;
+import pk.com.lib.map.modle.PKMarkerOptions;
 
 /**
  * Created by pukai on 16/12/21.
@@ -22,7 +22,7 @@ public abstract class IOverLay<T> extends MapResource<T> {
      *
      * @param fiveMarkerOptions
      */
-    public abstract FiveMarker addMarker(FiveMarkerOptions fiveMarkerOptions);
+    public abstract PKMarker addMarker(PKMarkerOptions fiveMarkerOptions);
 
     /**
      * 添加标注
@@ -30,7 +30,7 @@ public abstract class IOverLay<T> extends MapResource<T> {
      * @param fiveLatLng
      * @param view
      */
-    public abstract FiveMarker addMarker(FiveLatLng fiveLatLng, View view);
+    public abstract PKMarker addMarker(PKLatLng fiveLatLng, View view);
 
     /**
      * 添加标注
@@ -40,24 +40,24 @@ public abstract class IOverLay<T> extends MapResource<T> {
      * @param anchorX    锚点的x
      * @param anchorY    锚点的y
      */
-    public abstract FiveMarker addMarker(FiveLatLng fiveLatLng, View view, float anchorX, float anchorY);
+    public abstract PKMarker addMarker(PKLatLng fiveLatLng, View view, float anchorX, float anchorY);
 
     /**
      * 添加标注
      *
      * @param fiveLatLng 经纬度坐标信息
-     * @return 经过封装的Fivearker类
+     * @return 经过封装的PKarker类
      */
-    public abstract FiveMarker addMarker(FiveLatLng fiveLatLng, int imgId);
+    public abstract PKMarker addMarker(PKLatLng fiveLatLng, int imgId);
 
     /**
      * 添加标注
      *
      * @param fiveLatLng 经纬度坐标信息
      * @param title      标题
-     * @return 经过封装的Fivearker类
+     * @return 经过封装的PKarker类
      */
-    public abstract FiveMarker addMarker(FiveLatLng fiveLatLng, String title);
+    public abstract PKMarker addMarker(PKLatLng fiveLatLng, String title);
 
     /**
      * 添加标注
@@ -65,9 +65,9 @@ public abstract class IOverLay<T> extends MapResource<T> {
      * @param fiveLatLng       经纬度坐标信息
      * @param title            标题
      * @param isInfoWindowShow 标注框是否显示
-     * @return 经过封装的Fivearker类
+     * @return 经过封装的PKarker类
      */
-    public abstract FiveMarker addMarker(FiveLatLng fiveLatLng, String title, boolean isInfoWindowShow);
+    public abstract PKMarker addMarker(PKLatLng fiveLatLng, String title, boolean isInfoWindowShow);
 
     /**
      * 添加标注
@@ -75,20 +75,20 @@ public abstract class IOverLay<T> extends MapResource<T> {
      * @param fiveLatLng       经纬度坐标信息
      * @param title            标题
      * @param isInfoWindowShow 标注框是否显示
-     * @return 经过封装的Fivearker类
+     * @return 经过封装的PKarker类
      */
-    public abstract FiveMarker addMarker(FiveLatLng fiveLatLng, String title, int imgID, boolean isInfoWindowShow);
+    public abstract PKMarker addMarker(PKLatLng fiveLatLng, String title, int imgID, boolean isInfoWindowShow);
 
     /**
      * 添加标注使用特定的图标
      *
      * @param fiveLatLng 经纬度坐标信息
      * @param title      标题
-     * @return 经过封装的Fivearker类
+     * @return 经过封装的PKarker类
      */
-    public abstract FiveMarker addMarker(FiveLatLng fiveLatLng, String title, int imgID);
+    public abstract PKMarker addMarker(PKLatLng fiveLatLng, String title, int imgID);
 
-    public abstract void addPollyLine(FiveListLatLngContainer fiveListLatLngContainer);
+    public abstract void addPollyLine(PKListLatLngContainer fiveListLatLngContainer);
 
     public abstract void addPollyLine(List<LatLng> latLngs);
 

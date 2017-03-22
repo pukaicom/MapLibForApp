@@ -10,7 +10,7 @@ import com.amap.api.maps.model.LatLngBounds;
 
 import java.util.List;
 
-import pk.com.lib.map.modle.FiveLatLng;
+import pk.com.lib.map.modle.PKLatLng;
 
 
 /**
@@ -22,12 +22,12 @@ public class AMapControl extends IControl<AMap> {
     }
 
     @Override
-    public void setLatLng(List<FiveLatLng> fiveLatLngs) {
+    public void setLatLng(List<PKLatLng> fiveLatLngs) {
         if (fiveLatLngs == null || fiveLatLngs.isEmpty()) {
             return;
         }
         LatLngBounds.Builder builder = new LatLngBounds.Builder();
-        for (FiveLatLng fiveLatLng : fiveLatLngs) {
+        for (PKLatLng fiveLatLng : fiveLatLngs) {
             builder.include(fiveLatLng.getAmapLatlng());
         }
         int leftPadding = 100;
@@ -36,12 +36,12 @@ public class AMapControl extends IControl<AMap> {
         int bottomPadding = 251;
 
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngBoundsRect(builder.build(), leftPadding, rightPadding, topPadding, bottomPadding);
-        mFiveMap.moveCamera(cameraUpdate);
+        mPKMap.moveCamera(cameraUpdate);
     }
 
     @Override
-    public void setCenter(FiveLatLng fiveLatLng) {
+    public void setCenter(PKLatLng fiveLatLng) {
         CameraUpdate cameraUpdate = CameraUpdateFactory.newCameraPosition(new CameraPosition(fiveLatLng.getAmapLatlng(), ZOOM, 0, 0));
-        mFiveMap.moveCamera(cameraUpdate);
+        mPKMap.moveCamera(cameraUpdate);
     }
 }

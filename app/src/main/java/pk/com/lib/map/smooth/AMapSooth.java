@@ -15,8 +15,8 @@ import com.amap.api.maps.utils.overlay.SmoothMoveMarker;
 import java.util.List;
 
 import pk.com.lib.R;
-import pk.com.lib.map.modle.FiveLatLng;
-import pk.com.lib.map.modle.FiveListLatLngContainer;
+import pk.com.lib.map.modle.PKLatLng;
+import pk.com.lib.map.modle.PKListLatLngContainer;
 
 /**
  * Created by pukai on 16/12/22.
@@ -24,30 +24,30 @@ import pk.com.lib.map.modle.FiveListLatLngContainer;
 public class AMapSooth extends ISmooth<AMap> {
 
     private SmoothMoveMarker smoothMoveMarker;
-    private FiveSmoothListener mFiveSmoothListener;
+    private PKSmoothListener mPKSmoothListener;
     private int color;
     private int currentIndex;
     private int mTotalDuration;
-    private FiveListLatLngContainer mFiveListLatLngContainer;
+    private PKListLatLngContainer mPKListLatLngContainer;
 
     public AMapSooth(AMap aMap, Context context) {
         initMapResource(aMap, context);
     }
 
     @Override
-    public void initSmooth(int color, int totalDuration, FiveListLatLngContainer fiveListLatLngContainer, FiveSmoothListener fiveSmoothListener) {
+    public void initSmooth(int color, int totalDuration, PKListLatLngContainer fiveListLatLngContainer, PKSmoothListener fiveSmoothListener) {
         if (fiveListLatLngContainer == null || fiveListLatLngContainer.isEmpty()) {
             return;
         }
 
         mTotalDuration = totalDuration;
-        mFiveListLatLngContainer = fiveListLatLngContainer;
-        mFiveSmoothListener = fiveSmoothListener;
+        mPKListLatLngContainer = fiveListLatLngContainer;
+        mPKSmoothListener = fiveSmoothListener;
         currentIndex = 0;
         this.color = color;
         final List<LatLng> points = fiveListLatLngContainer.getaMaplist();
         addLine(points);
-        smoothMoveMarker = new SmoothMoveMarker(mFiveMap);
+        smoothMoveMarker = new SmoothMoveMarker(mPKMap);
         smoothMoveMarker.setDescriptor(BitmapDescriptorFactory.fromResource(R.drawable.icon_car));
         LatLng drivePoint = points.get(0);
         final Pair<Integer, LatLng> pair = SpatialRelationUtil.calShortestDistancePoint(points, drivePoint);
@@ -59,22 +59,22 @@ public class AMapSooth extends ISmooth<AMap> {
         smoothMoveMarker.setMoveListener(new SmoothMoveMarker.MoveListener() {
             @Override
             public void move(final double distance) {
-                if (mFiveSmoothListener != null) {
+                if (mPKSmoothListener != null) {
                     LatLng latLng = points.get(currentIndex++);
-                    mFiveSmoothListener.move(distance, new FiveLatLng(latLng.latitude, latLng.longitude), currentIndex);
+                    mPKSmoothListener.move(distance, new PKLatLng(latLng.latitude, latLng.longitude), currentIndex);
                     if (distance == 0) {
-                        mFiveSmoothListener.smoothFinish();
+                        mPKSmoothListener.smoothFinish();
                     }
                 }
             }
 
         });
-        mFiveMap.addMarker(new MarkerOptions().position(points.get(points.size() - 1)).icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_end)));
+        mPKMap.addMarker(new MarkerOptions().position(points.get(points.size() - 1)).icon(BitmapDescriptorFactory.fromResource(R.drawable.icon_end)));
         // smoothMoveMarker.startSmoothMove();
     }
 
     private void addLine(List<LatLng> list) {
-        mFiveMap.addPolyline(new PolylineOptions().color(color)
+        mPKMap.addPolyline(new PolylineOptions().color(color)
                 .addAll(list)
                 .useGradient(true)
                 .width(16));
@@ -91,10 +91,10 @@ public class AMapSooth extends ISmooth<AMap> {
     public void reStartSmooth() {
         if (smoothMoveMarker != null) {
             smoothMoveMarker.destroy();
-            mFiveMap.clear();
+            mPKMap.clear();
             smoothMoveMarker = null;
         }
-        initSmooth(color, mTotalDuration, mFiveListLatLngContainer, mFiveSmoothListener);
+        initSmooth(color, mTotalDuration, mPKListLatLngContainer, mPKSmoothListener);
         startSmooth();
     }
 
@@ -110,7 +110,7 @@ public class AMapSooth extends ISmooth<AMap> {
         if (smoothMoveMarker != null) {
             smoothMoveMarker.stopMove();
             smoothMoveMarker.destroy();
-            mFiveListLatLngContainer = null;
+            mPKListLatLngContainer = null;
             smoothMoveMarker = null;
         }
     }

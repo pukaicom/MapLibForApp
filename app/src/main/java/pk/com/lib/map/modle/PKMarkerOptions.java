@@ -5,7 +5,7 @@ import com.amap.api.maps.model.MarkerOptions;
 /**
  * Created by pukai on 16/5/20.
  */
-public class FiveMarkerOptions {
+public class PKMarkerOptions {
     private MarkerOptions amapMarkerOptions;
 
     public MarkerOptions getAmapMarkerOptions() {
@@ -15,7 +15,7 @@ public class FiveMarkerOptions {
     public void setAmapMarkerOptions(MarkerOptions amapMarkerOptions) {
         this.amapMarkerOptions = amapMarkerOptions;
     }
-    public FiveMarkerOptions(MarkerOptions amapMarkerOptions) {
+    public PKMarkerOptions(MarkerOptions amapMarkerOptions) {
         this.amapMarkerOptions = amapMarkerOptions;
     }
 }

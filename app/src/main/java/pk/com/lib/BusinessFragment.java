@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import pk.com.lib.map.MapControl;
-import pk.com.lib.map.modle.FiveLatLng;
+import pk.com.lib.map.modle.PKLatLng;
 
 
 /**
@@ -41,7 +41,7 @@ public class BusinessFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    private BusinessFragment() {
+    public BusinessFragment() {
     }
 
     public static BusinessFragment getInstance(Bundle bundle) {
@@ -87,15 +87,15 @@ public class BusinessFragment extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.fragment_business_add_marker_btn:
-                mMapControl.getMapController().addBusinessMarker(new FiveLatLng(31.2393627086, 121.4995369338), "东方明珠塔");
+                mMapControl.getMapController().addBusinessMarker(new PKLatLng(31.2393627086, 121.4995369338), "东方明珠塔");
                 break;
             case R.id.fragment_business_draw_line_btn:
                 mMapControl.getMapController().addPollyLine(getTestData());
                 break;
             case R.id.fragment_business_move_map_btn:
-                List<FiveLatLng> fiveLatLngList = new ArrayList<>();
-                fiveLatLngList.add(new FiveLatLng(31.2363627086, 121.4995369338));
-                fiveLatLngList.add(new FiveLatLng(31.2423627086, 121.4995369338));
+                List<PKLatLng> fiveLatLngList = new ArrayList<>();
+                fiveLatLngList.add(new PKLatLng(31.2363627086, 121.4995369338));
+                fiveLatLngList.add(new PKLatLng(31.2423627086, 121.4995369338));
                 mMapControl.getMapController().moveMap(fiveLatLngList);
                 break;
             case R.id.fragment_business_draw_rout_btn:
@@ -112,10 +112,10 @@ public class BusinessFragment extends Fragment implements View.OnClickListener {
         }
     }
 
-    private List<FiveLatLng> getTestData() {
-        List<FiveLatLng> fiveLatLngList = new ArrayList<>();
+    private List<PKLatLng> getTestData() {
+        List<PKLatLng> fiveLatLngList = new ArrayList<>();
         for (int i = 0; i < 30; i++) {
-            FiveLatLng fiveLatLng = new FiveLatLng(31.2393627086 - i * 0.01, 121.4995369338 - i * 0.01);
+            PKLatLng fiveLatLng = new PKLatLng(31.2393627086 - i * 0.01, 121.4995369338 - i * 0.01);
             fiveLatLngList.add(fiveLatLng);
         }
         return fiveLatLngList;

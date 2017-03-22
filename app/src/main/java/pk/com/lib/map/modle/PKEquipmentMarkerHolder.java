@@ -4,14 +4,14 @@ import com.amap.api.maps.model.Marker;
 
 import java.util.List;
 
-public class EquipmentMarkerHolder {
+public class PKEquipmentMarkerHolder {
 
-    public EquipmentMarkerHolder(FiveLatLng fiveLatLng, List<EuipmentInfo> infos) {
+    public PKEquipmentMarkerHolder(PKLatLng fiveLatLng, List<PKEuipmentInfo> infos) {
         this.fiveLatLng = fiveLatLng;
         this.infos = infos;
     }
     public Marker marker;
-    public FiveLatLng fiveLatLng;
-    public List<EuipmentInfo> infos;
+    public PKLatLng fiveLatLng;
+    public List<PKEuipmentInfo> infos;
 }
 

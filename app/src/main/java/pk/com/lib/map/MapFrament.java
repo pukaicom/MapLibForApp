@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import pk.com.lib.CommonMapFunction;
-import pk.com.lib.map.smooth.FiveSmoothListener;
+import pk.com.lib.map.smooth.PKSmoothListener;
 
 
 /**
@@ -39,8 +39,8 @@ public abstract class MapFrament<T> extends Fragment implements CommonMapFunctio
     protected OnMapClickCallback onMapClickCallback = null;
     protected OnMapLoaded onMapLoadedListener = null;
     protected OnMarkerOnclickListener mOnMarkerOnclickListener;
-    protected OnFiveMapTouch mOnFiveMapTouch;
-    protected FiveSmoothListener mFiveSmoothListener;
+    protected OnPKMapTouch mOnPKMapTouch;
+    protected PKSmoothListener mPKSmoothListener;
     /**
      * 当前的地图的显示模式
      * <li>10 车辆</li>
@@ -86,11 +86,11 @@ public abstract class MapFrament<T> extends Fragment implements CommonMapFunctio
         this.mMapCenterChangeListener = mapCenterChangeListener;
     }
 
-    public void setOnFiveMapTouchListener(OnFiveMapTouch fiveMapTouchListener) {
-        this.mOnFiveMapTouch = fiveMapTouchListener;
+    public void setOnPKMapTouchListener(OnPKMapTouch fiveMapTouchListener) {
+        this.mOnPKMapTouch = fiveMapTouchListener;
     }
 
-    public void setSmoothListener(FiveSmoothListener fiveSmoothListener) {
-        mFiveSmoothListener = fiveSmoothListener;
+    public void setSmoothListener(PKSmoothListener fiveSmoothListener) {
+        mPKSmoothListener = fiveSmoothListener;
     }
 }

@@ -1,12 +1,12 @@
 package pk.com.lib.map.trace;
 
 
-import pk.com.lib.map.modle.FiveListLatLngContainer;
+import pk.com.lib.map.modle.PKListLatLngContainer;
 
 /**
  * Created by pukai on 16/12/26.
  */
-public interface FiveTraceListener {
+public interface PKTraceListener {
     /**
      * 轨迹纠偏失败的回调
      *
@@ -22,7 +22,7 @@ public interface FiveTraceListener {
      * @param index                   已纠偏的点的数目
      * @param fiveListLatLngContainer 点集合
      */
-    void onTraceProcessing(int lineID, int index, FiveListLatLngContainer fiveListLatLngContainer);
+    void onTraceProcessing(int lineID, int index, PKListLatLngContainer fiveListLatLngContainer);
 
     /**
      * 轨迹纠偏完成的回调
@@ -32,5 +32,5 @@ public interface FiveTraceListener {
      * @param distance                距离
      * @param waitingTime             等待时间
      */
-    void onFinished(int lineID, FiveListLatLngContainer fiveListLatLngContainer, int distance, int waitingTime);
+    void onFinished(int lineID, PKListLatLngContainer fiveListLatLngContainer, int distance, int waitingTime);
 }

@@ -6,7 +6,7 @@ import com.amap.api.maps.AMap;
 
 import java.util.List;
 
-import pk.com.lib.map.modle.FiveLatLng;
+import pk.com.lib.map.modle.PKLatLng;
 
 
 /**
@@ -17,7 +17,7 @@ public class AMapNavi extends INavi<AMap>{
         initMapResource(aMap,context);
     }
     @Override
-    public void startNavi(FiveLatLng fiveStart, FiveLatLng fiveEnd, List<FiveLatLng> fivePassList) {
+    public void startNavi(PKLatLng fiveStart, PKLatLng fiveEnd, List<PKLatLng> fivePassList) {
     }
 
     @Override

@@ -3,7 +3,7 @@ package pk.com.lib.map.modle;
 /**
  * Created by pukai on 16/12/29.
  */
-public class FiveContainer<T> {
+public class PKContainer<T> {
     private T data;
 
     public T getData() {
@@ -14,7 +14,7 @@ public class FiveContainer<T> {
         this.data = data;
     }
 
-    public FiveContainer(T data){
+    public PKContainer(T data){
         this.data = data;
     }
 }

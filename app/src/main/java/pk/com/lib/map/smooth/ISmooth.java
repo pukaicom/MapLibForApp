@@ -2,7 +2,7 @@ package pk.com.lib.map.smooth;
 
 
 import pk.com.lib.map.MapResource;
-import pk.com.lib.map.modle.FiveListLatLngContainer;
+import pk.com.lib.map.modle.PKListLatLngContainer;
 
 /**
  * Created by pukai on 16/12/21.
@@ -14,7 +14,7 @@ public abstract class ISmooth<T> extends MapResource<T> {
      * @param fiveListLatLngContainer 点集合
      * @param fiveSmoothListener      移动的事件监听
      */
-    public abstract void initSmooth(int color, int totalDuration, FiveListLatLngContainer fiveListLatLngContainer, FiveSmoothListener fiveSmoothListener);
+    public abstract void initSmooth(int color, int totalDuration, PKListLatLngContainer fiveListLatLngContainer, PKSmoothListener fiveSmoothListener);
 
     /**
      * 停止平滑移动

@@ -10,8 +10,8 @@ import com.amap.api.trace.TraceLocation;
 
 import java.util.List;
 
-import pk.com.lib.map.modle.FiveListLatLngContainer;
-import pk.com.lib.map.modle.FiveListTraceLocationContainer;
+import pk.com.lib.map.modle.PKListLatLngContainer;
+import pk.com.lib.map.modle.PKListTraceLocationContainer;
 
 /**<p>高德地图轨迹纠偏的具体实现</p>
  * Created by pukai on 16/12/22.
@@ -23,24 +23,24 @@ public class AMapTrace extends ITrace<AMap>{
     private int mSequenceLineID = 1000;
     private int mCoordinateType = LBSTraceClient.TYPE_AMAP;
 
-    private FiveTraceListener mFiveTraceListener;
+    private PKTraceListener mPKTraceListener;
 
     public AMapTrace(AMap aMap, Context context){
         initMapResource(aMap,context);
     }
     @Override
-    public void startTrace(FiveListTraceLocationContainer fiveListTraceLocationContainer, FiveTraceListener fiveTraceListener) {
-        mFiveTraceListener = fiveTraceListener;
+    public void startTrace(PKListTraceLocationContainer fiveListTraceLocationContainer, PKTraceListener fiveTraceListener) {
+        mPKTraceListener = fiveTraceListener;
         if(fiveListTraceLocationContainer ==null){
-            if(mFiveTraceListener!=null){
-                mFiveTraceListener.onFinished(0,null,0,0);
+            if(mPKTraceListener!=null){
+                mPKTraceListener.onFinished(0,null,0,0);
             }
             return;
         }
         List<TraceLocation> traceLocations = fiveListTraceLocationContainer.getaMaplist();
         if(traceLocations==null||traceLocations.isEmpty()){
-            if(mFiveTraceListener!=null){
-                mFiveTraceListener.onFinished(0,null,0,0);
+            if(mPKTraceListener!=null){
+                mPKTraceListener.onFinished(0,null,0,0);
             }
             return;
         }
@@ -52,26 +52,26 @@ public class AMapTrace extends ITrace<AMap>{
     private TraceListener mTraceListener = new TraceListener() {
         @Override
         public void onRequestFailed(int lineID, String errorInfo) {
-            if(mFiveTraceListener!=null){
-                mFiveTraceListener.onRequestFailed(lineID,errorInfo);
+            if(mPKTraceListener!=null){
+                mPKTraceListener.onRequestFailed(lineID,errorInfo);
             }
         }
 
         @Override
         public void onTraceProcessing(int lineID, int index, List<LatLng> list) {
-            if(mFiveTraceListener!=null){
-                FiveListLatLngContainer fiveListLatLngContainer = new FiveListLatLngContainer();
+            if(mPKTraceListener!=null){
+                PKListLatLngContainer fiveListLatLngContainer = new PKListLatLngContainer();
                 fiveListLatLngContainer.setaMaplist(list);
-                mFiveTraceListener.onTraceProcessing(lineID,index,fiveListLatLngContainer);
+                mPKTraceListener.onTraceProcessing(lineID,index,fiveListLatLngContainer);
             }
         }
 
         @Override
         public void onFinished(int lineID, List<LatLng> list, int distance, int waitingTime) {
-            if(mFiveTraceListener!=null) {
-                FiveListLatLngContainer fiveListLatLngContainer = new FiveListLatLngContainer();
+            if(mPKTraceListener!=null) {
+                PKListLatLngContainer fiveListLatLngContainer = new PKListLatLngContainer();
                 fiveListLatLngContainer.setaMaplist(list);
-                mFiveTraceListener.onFinished(lineID,fiveListLatLngContainer,distance,waitingTime);
+                mPKTraceListener.onFinished(lineID,fiveListLatLngContainer,distance,waitingTime);
             }
         }
     };

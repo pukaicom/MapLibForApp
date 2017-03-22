@@ -20,9 +20,9 @@ import java.util.List;
 import pk.com.lib.R;
 import pk.com.lib.map.MapFrament;
 import pk.com.lib.map.MapHelper;
-import pk.com.lib.map.modle.FiveLatLng;
-import pk.com.lib.map.modle.FiveListLatLngContainer;
-import pk.com.lib.map.modle.FiveMarker;
+import pk.com.lib.map.modle.PKLatLng;
+import pk.com.lib.map.modle.PKListLatLngContainer;
+import pk.com.lib.map.modle.PKMarker;
 
 /**
  * Created by pukai on 2016-6-20.
@@ -31,7 +31,7 @@ public class AmapFragment extends MapFrament<AMap> implements AMap.OnMapLoadedLi
     private AMap mAMap;
     private MapView mMapView;
     //记录当前添加的marker 再次添加的时候 只需要更改marker的位置 setPotint();
-    private FiveMarker currentMaker;
+    private PKMarker currentMaker;
 
     @Override
     public View onCreateView(LayoutInflater layoutinflater, ViewGroup viewgroup, Bundle bundle) {
@@ -95,7 +95,7 @@ public class AmapFragment extends MapFrament<AMap> implements AMap.OnMapLoadedLi
 
     @Override
     public void onMapLoaded() {
-        mapHelper.getmIControl().setCenter(new FiveLatLng(31.2393627086, 121.4995369338));
+        mapHelper.getmIControl().setCenter(new PKLatLng(31.2393627086, 121.4995369338));
     }
 
     @Override
@@ -135,12 +135,12 @@ public class AmapFragment extends MapFrament<AMap> implements AMap.OnMapLoadedLi
     }
 
     @Override
-    public void setMapCenter(FiveLatLng fiveLatLng) {
+    public void setMapCenter(PKLatLng fiveLatLng) {
         mapHelper.getmIControl().setCenter(fiveLatLng);
     }
 
     @Override
-    public void addBusinessMarker(FiveLatLng fiveLatLng, String title) {
+    public void addBusinessMarker(PKLatLng fiveLatLng, String title) {
         if (currentMaker == null) {
             currentMaker = mapHelper.getmIOverLay().addMarker(fiveLatLng, inflatCarStausView(title), 0.1f, 0.5f);
         } else {
@@ -149,12 +149,12 @@ public class AmapFragment extends MapFrament<AMap> implements AMap.OnMapLoadedLi
     }
 
     @Override
-    public void addPollyLine(List<FiveLatLng> fiveLatLngList) {
-        mapHelper.getmIOverLay().addPollyLine(new FiveListLatLngContainer(fiveLatLngList));
+    public void addPollyLine(List<PKLatLng> fiveLatLngList) {
+        mapHelper.getmIOverLay().addPollyLine(new PKListLatLngContainer(fiveLatLngList));
     }
 
     @Override
-    public void moveMap(List<FiveLatLng> fiveLatLngList) {
+    public void moveMap(List<PKLatLng> fiveLatLngList) {
         mapHelper.getmIControl().setLatLng(fiveLatLngList);
     }
 
