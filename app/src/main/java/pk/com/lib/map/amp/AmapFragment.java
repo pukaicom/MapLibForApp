@@ -61,6 +61,7 @@ public class AmapFragment extends MapFrament<AMap> implements AMap.OnMapLoadedLi
     public void onDestroy() {
         mMapView.onDestroy();
         mMapView = null;
+        mapHelper.destrory();
         super.onDestroy();
     }
 
